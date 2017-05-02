@@ -1,0 +1,19 @@
+{% extends "jinja2/layout.html" %}
+{% block content %}
+  <h3> This is the start of my child template</h3>
+  <br>
+  <p>My example string: {{mystring}}</p>
+
+  <p>Loop through the list:</p>
+  <ul>
+    {% for n in mylist %}
+    <li>{{n}}</li>
+    {% endfor %}
+  </ul>
+  <ul>
+    {% for element in mycontext %}
+    <li>{{mycontext}}</li>
+    {% endfor %}
+  </ul>
+  <h3> This is the end of my child template</h3>
+{% endblock %}
