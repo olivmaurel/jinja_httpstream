@@ -11,7 +11,8 @@ into using templates to render your http pages in a nicely formatted manner.
 
 The problem
 -----------
-`As the official documentation states` <https://docs.djangoproject.com/en/1.10/ref/request-response/#django.http.StreamingHttpResponse>,
+`As the official documentation states
+<https://docs.djangoproject.com/en/1.10/ref/request-response/#django.http.StreamingHttpResponse>`_,
 Django is designed for short-lived requests, and it's preferable to avoid streaming responses.
 But there are cases where you have to stream data in your http response, like big csv files.
 Unfortunately, as you may already know, the StreamingHttpResponse() class is not meant
