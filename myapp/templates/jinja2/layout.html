@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jinja Template Example</title>
+    <title>Streaming http using Jinja</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <style type="text/css">
       .container {
-        max-width: 500px;
+        max-width: 750px;
         padding-top: 100px;
       }
-      h2 {color: red;}
+      h1 {color: blue;}
+      h2 {color: grey;}
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>This is part of my base template</h2>
+      <h1>Streaming HTTP using Jinja2 and templates</h1>
       <br>
+      <ol type="1">
+        <li><a href="httpresponse">Problem: rendering delay with HttpResponse()</a></li>
+        <li><a href="streaminghttpresponse">render page with StreamingHttpresponse()</a></li>
+        <li><a href="naive">try to add templates to StreamingHttpresponse()</a></li>
+        <li><a href="jinja">Solution: render page with StreamingHttpresponse() combined with jinja.generate()</a></li>
+
+      </ol>
+
+
+
+
       {% block content %}{% endblock %}
-      <br>
-      <h2>This is part of my base template</h2>
     </div>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>

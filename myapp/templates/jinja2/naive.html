@@ -1,0 +1,24 @@
+{% extends "jinja2/layout.html" %}
+{% block content %}
+  <h2> 3) Naive implementation of templates with StreamingHttpResponse()</h2>
+  <br>
+  <p> Following the official documentation, you can manually create a Template, a Context,
+      and call Template.render() with StreamingHttpResponse().</br>
+      Doing so, you get the same result as with HttpResponse(),
+      the page hangs until everything is rendered, and gets displayed all at once.
+      You just end up adding an extra layer of complexity for the same result.</p>
+<p>The context contains a string : <b>{{mystring}}</b></p>
+
+  <p>And also a short list, that could be rendered very quickly :</p>
+  <ul>
+    {% for n in mylist %}
+    <li>{{n}}</li>
+    {% endfor %}
+  </ul>
+  <p>The next element in context is a request that will take much longer (approx 5 seconds)</p>
+  <ul>
+    {% for element in mylongresponse %}
+    <li>{{element}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "jinja2/layout.html" %}
+{% block content %}
+  <h2> 1) Rendering delay using HttpResponse()</h2>
+  <br>
+  <p> The page is rendered all at once. If there is a lot of data to process, the page will hang for a while.
+  In this example, a request takes 5 seconds to process, while the page looks blank and hanging in the meantime.</p>
+
+  <pre class="prettyprint">
+    def get_sample_context():
+
+      long_response = simulate_long_response_with_delay()
+      mystring = 'I am a string stored in the context dict'
+      context = {'mylist': [1, 2, 3, 4, 5], 'mystring': mystring, 'mylongresponse': long_response}
+      return context
+
+    def simple_httpresponse(request):
+
+      context = get_sample_context()
+      return render(request, 'jinja2/httpresponse.html', context)
+
+  </pre>
+
+<p>The context contains a string : <b>{{mystring}}</b></p>
+
+  <p>And also a short list, that could be rendered very quickly :</p>
+  <ul>
+    {% for n in mylist %}
+    <li>{{n}}</li>
+    {% endfor %}
+  </ul>
+  <p>The next element in context is a request that will take much longer (approx 5 seconds)</p>
+  <ul>
+    {% for element in mylongresponse %}
+    <li>{{element}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
