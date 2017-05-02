@@ -108,6 +108,7 @@ The solution described below comes from this article http://jonathanchu.is/posts
         },
     },
     ]
+
 Make sure to keep both jinja2 and django backend, since jinja2 templates may mess with the admin interface (i haven't tested it yet to be honest)
 
 3) Create a dedicated folder for jinja2 templates under your application main folder::
